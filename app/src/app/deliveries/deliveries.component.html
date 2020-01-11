@@ -2,13 +2,18 @@
 
 <mat-card *ngFor="let hero of heroes">
   <mat-card-header>
-    <mat-icon style="color:forestgreen; font-weight:bold;" aria-hidden="false" aria-label="Example home icon">done</mat-icon>
-    <mat-card-title>Order ID: {{hero.name}}</mat-card-title>
+    <mat-icon
+      aria-hidden="false"
+      aria-label="Example home icon"
+      style="color:forestgreen; font-weight:bold;"
+      >done
+    </mat-icon>
+    <mat-card-title>Order ID: {{ hero.name }}</mat-card-title>
     <mat-card-subtitle>Date:<b>12.Dez 14:40 Uhr</b></mat-card-subtitle>
   </mat-card-header>
   <mat-card-content>
     <p>
-      Total Weight: {{hero.id}} kg <br />
+      Total Weight: {{ hero.id }} kg <br />
       13 positions
     </p>
   </mat-card-content>
