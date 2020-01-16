@@ -13,3 +13,17 @@ body {
 html {
   background-color: #eeeeee;
 }
+
+.label-list {
+  display: grid;
+  grid-template-columns: 40px auto;
+}
+.label-list label {
+  margin-right: 5px;
+  grid-column: 1;
+  align-self: center;
+}
+.label-list span {
+  grid-column: 2;
+  align-self: center;
+}

@@ -1,0 +1,31 @@
+.content-margin {
+  margin: 10px;
+}
+
+.word-label-container {
+  display: grid;
+  grid-template-columns: 150px auto;
+}
+.word-label-container b {
+  grid-column: 1;
+}
+.word-label-container span {
+  grid-column: 2;
+}
+
+.chip {
+  background-color: #2fcb71;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: white;
+}
+.chip span,
+.chip mat-icon {
+  vertical-align: middle !important;
+}
+.chip span {
+  margin-left: 20px;
+}
+.chip-error {
+  background-color: #e84b3b;
+}

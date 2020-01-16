@@ -1,24 +1,34 @@
-<h2>Deliveries</h2>
-
-<mat-card *ngFor="let hero of heroes">
-  <mat-card-header>
-    <mat-icon
-      aria-hidden="false"
-      aria-label="Example home icon"
-      style="color:forestgreen; font-weight:bold;"
-      mat-card-avatar
-      >done
-    </mat-icon>
-    <mat-card-title>Order ID: {{ hero.name }}</mat-card-title>
-    <mat-card-subtitle>Date: <b>12.Dez 14:40 Uhr</b></mat-card-subtitle>
-  </mat-card-header>
-  <mat-card-content>
-    <p>
-      Total Weight: {{ hero.id }} kg <br />
-      13 positions
-    </p>
-  </mat-card-content>
-  <mat-card-actions>
-    <button mat-button>DONE</button>
-  </mat-card-actions>
-</mat-card>
+<section class="content-margin">
+  <div
+    *ngFor="let order of orders$ | async"
+    [routerLink]="['/order-detail', order.id]"
+    class="order-item"
+  >
+    <div
+      class="order-item-content mat-elevation-z1"
+      [ngClass]="{
+        'order-weighted': order.status == 'WEIGHTED',
+        'order-pay': order.status == 'PAY',
+        'order-error': order.status == 'ERROR'
+      }"
+    >
+      <p class="auto-columns">
+        <b>{{ order.title }} (#{{ order.id }})</b>
+        <span class="right">{{ order.timestamp | date: 'dd/LL/yy' }}</span>
+      </p>
+      <p class="label-columns">
+        <label><mat-icon>euro</mat-icon></label> <span>{{ order.cost }}</span>
+        <label><mat-icon>shopping_cart</mat-icon></label>
+        <span>{{ order.total_weight }}</span>
+      </p>
+    </div>
+    <mat-icon *ngIf="order.status == 'OPEN'">query_builder</mat-icon>
+    <mat-icon *ngIf="order.status == 'WEIGHTED'" style="color:orange"
+      >hourglass_full</mat-icon
+    >
+    <mat-icon *ngIf="order.status == 'PAY'" style="color:green"
+      >check_circle</mat-icon
+    >
+    <mat-icon *ngIf="order.status == 'ERROR'" style="color:red">error</mat-icon>
+  </div>
+</section>

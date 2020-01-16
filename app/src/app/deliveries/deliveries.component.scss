@@ -1,3 +1,36 @@
-mat-card {
+.order-item {
+  display: grid;
+  grid-template-columns: auto 40px;
+  margin-bottom: 20px;
+}
+
+.order-item-content {
+  grid-column: 1;
+  padding: 10px;
+  margin-right: 20px;
+}
+
+.order-item mat-icon {
+  grid-column: 2;
+  align-self: center;
+}
+
+.auto-columns {
+  display: grid;
+  grid-template-columns: auto auto;
+}
+.label-columns {
+  display: grid;
+  grid-template-columns: 50px auto;
+}
+
+.auto-columns .right {
+  grid-column: 2;
+  align-self: end;
+  text-align: right;
+  color: #999;
+}
+
+.content-margin {
   margin: 10px;
 }

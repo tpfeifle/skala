@@ -1,0 +1,54 @@
+<section class="content-margin" *ngIf="order$ | async">
+  <div>
+    <mat-icon routerLink="/">close</mat-icon>
+    <h2>{{ (order$ | async).title }} (#{{ (order$ | async).id }})</h2>
+  </div>
+
+  <mat-divider></mat-divider>
+  <div>
+    <p class="word-label-container">
+      <b>Order weight:</b> <span>{{ (order$ | async).cost }} €</span>
+    </p>
+    <p class="word-label-container">
+      <b>Order amount:</b> <span>{{ (order$ | async).total_weight }} kg</span>
+    </p>
+    <p class="word-label-container">
+      <b>Time:</b> <span>{{ (order$ | async).timestamp | date: 'short' }}</span>
+    </p>
+  </div>
+  <mat-divider></mat-divider>
+  <p
+    class="chip"
+    *ngIf="['WEIGHTED', 'PAY', 'ERROR'].indexOf(order$ | async).status != -1"
+  >
+    <mat-icon>done</mat-icon>
+    <span>Delivery weighted</span>
+  </p>
+  <p class="chip" *ngIf="'PAY' == (order$ | async).status">
+    <mat-icon>done</mat-icon>
+    <span>Payment triggered</span>
+  </p>
+  <p class="chip chip-error" *ngIf="'ERROR' == (order$ | async).status">
+    <mat-icon>error</mat-icon>
+    <span>Problem with order</span>
+  </p>
+  <mat-divider></mat-divider>
+  <p class="word-label-container">
+    <b>Attachements:</b>
+    <span>
+      Positionsliste <br />
+      Delivery notice
+    </span>
+  </p>
+
+  <form (ngSubmit)="onSubmit()">
+    <input type="hidden" name="size" value="1000000" />
+    <div>
+      <input type="file" name="image" (change)="onFileSelected($event)" />
+    </div>
+    <div>
+      <input id="textauthor" name="name" placeholder="Name" />
+      <button type="submit" name="upload">POST</button>
+    </div>
+  </form>
+</section>
