@@ -1,14 +1,14 @@
 <mat-sidenav-container class="example-container">
-  <mat-sidenav #sidenav mode="side" [(opened)]="opened">
+  <mat-sidenav #sidenav mode="top" [(opened)]="opened">
     <mat-nav-list>
       <mat-list-item>
-        <a matLine href="...">About</a>
+        <a matLine href="...">Info</a>
         <button mat-icon-button>
           <mat-icon>info</mat-icon>
         </button>
       </mat-list-item>
       <mat-list-item>
-        <a matLine href="...">Settings</a>
+        <a matLine href="...">Einstellungen</a>
         <button mat-icon-button>
           <mat-icon>camera</mat-icon>
         </button>
@@ -17,11 +17,19 @@
   </mat-sidenav>
 
   <mat-sidenav-content>
-    <mat-toolbar color="primary" style="background-color:#3598DB;">
+    <mat-toolbar color="primary" style="background-color:#3AAFA9;">
       <mat-icon (click)="sidenav.toggle()">dehaze</mat-icon>
-      <span style="text-align:center; width:100%;">Skala</span>
+      <span [routerLink]="['/']" style="text-align:center; width:100%;"
+        >Skala</span
+      >
       <span class="example-spacer"></span>
-      <mat-icon (click)="sidenav.toggle()">notifications</mat-icon>
+      <mat-icon
+        [routerLink]="['/unmatched-weights']"
+        matBadge="{{ (truckWeights$ | async).length }}"
+        [matBadgeHidden]="(truckWeights$ | async).length <= 0"
+        matBadgeColor="warn"
+        >notifications</mat-icon
+      >
     </mat-toolbar>
 
     <router-outlet></router-outlet>

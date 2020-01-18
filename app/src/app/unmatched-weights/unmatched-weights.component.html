@@ -1,1 +1,56 @@
-<p>unmatched-weights works!</p>
+<h2 style="margin-left:10px;" *ngIf="(truckWeights$ | async).length != 0">
+  Nicht zugeordnete Gewichte
+</h2>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let truckWeight of truckWeights$ | async">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        <span style="font-size:1.2em; font-weight: bold; margin-right:5px;"
+          >kg</span
+        >
+        {{ truckWeight.total_weight }}
+      </mat-panel-title>
+      <mat-panel-description>
+        {{ truckWeight.timestamp | date: 'medium' }}
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+
+    <mat-form-field>
+      <mat-label>Wähle eine Bestellung</mat-label>
+      <mat-select [(value)]="truckWeight.order">
+        <mat-option *ngFor="let order of orders$ | async" value="{{ order.id }}"
+          >{{ order.title }}({{ order.id }}) -
+          {{ order.total_weight }}kg</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+
+    <mat-action-row>
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="deleteTruckWeight(truckWeight)"
+      >
+        Gewicht löschen
+      </button>
+      <button
+        mat-raised-button
+        color="primary"
+        class="blue"
+        (click)="assignOrder(truckWeight)"
+      >
+        Lieferung zuordnen
+      </button>
+    </mat-action-row>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<div *ngIf="(truckWeights$ | async).length == 0">
+  <img
+    src="assets/checkmark.png"
+    style="width:50%; margin-top:100px; margin-left:25%;"
+  />
+  <p style="text-align: center; font-size:1.2em;">
+    Alle Gewichte erfolgreich zugeordnet.
+  </p>
+</div>

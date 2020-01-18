@@ -7,13 +7,15 @@
   <mat-divider></mat-divider>
   <div>
     <p class="word-label-container">
-      <b>Order weight:</b> <span>{{ (order$ | async).cost }} €</span>
+      <b>Lieferung-Betrag:</b> <span>{{ (order$ | async).cost }} €</span>
     </p>
     <p class="word-label-container">
-      <b>Order amount:</b> <span>{{ (order$ | async).total_weight }} kg</span>
+      <b>Lieferung-Gewicht:</b>
+      <span>{{ (order$ | async).total_weight }} kg</span>
     </p>
     <p class="word-label-container">
-      <b>Time:</b> <span>{{ (order$ | async).timestamp | date: 'short' }}</span>
+      <b>Datum:</b>
+      <span>{{ (order$ | async).timestamp | date: 'dd. LLLL, hh:mm' }}</span>
     </p>
   </div>
   <mat-divider></mat-divider>
@@ -21,34 +23,60 @@
     class="chip"
     *ngIf="['WEIGHTED', 'PAY', 'ERROR'].indexOf(order$ | async).status != -1"
   >
-    <mat-icon>done</mat-icon>
-    <span>Delivery weighted</span>
+    <mat-icon>error</mat-icon>
+    <span>Lieferung gewogen</span>
   </p>
   <p class="chip" *ngIf="'PAY' == (order$ | async).status">
     <mat-icon>done</mat-icon>
-    <span>Payment triggered</span>
+    <span>Zahlung angestoßen</span>
   </p>
   <p class="chip chip-error" *ngIf="'ERROR' == (order$ | async).status">
     <mat-icon>error</mat-icon>
-    <span>Problem with order</span>
+    <span>Problem mit Bestellung</span>
   </p>
   <mat-divider></mat-divider>
-  <p class="word-label-container">
-    <b>Attachements:</b>
+  <p>
+    <b>Anlagen:</b>
     <span>
-      Positionsliste <br />
-      Delivery notice
+      <!--Positionsliste <br />-->
+      <!--Delivery notice-->
+      <img
+        src="http://172.20.10.13:3000/delivery-notice/{{
+          (order$ | async).id
+        }}?reload={{ reload }}"
+        alt=""
+        style="width:100%"
+      />
     </span>
   </p>
 
   <form (ngSubmit)="onSubmit()">
-    <input type="hidden" name="size" value="1000000" />
-    <div>
-      <input type="file" name="image" (change)="onFileSelected($event)" />
-    </div>
-    <div>
-      <input id="textauthor" name="name" placeholder="Name" />
-      <button type="submit" name="upload">POST</button>
-    </div>
+    <button
+      type="button"
+      (click)="fileInput.click()"
+      mat-raised-button
+      color="primary"
+      class="blue"
+    >
+      <span>Lieferschein hinzufügen</span>
+      <input
+        #fileInput
+        type="file"
+        name="image"
+        (change)="onFileSelected($event)"
+        style="display:none;"
+      />
+    </button>
   </form>
+  <br />
+  <button
+    type="button"
+    (click)="completeOrder()"
+    class="blue"
+    *ngIf="'PAY' != (order$ | async).status"
+    mat-raised-button
+    color="primary"
+  >
+    Lieferung akzeptieren
+  </button>
 </section>

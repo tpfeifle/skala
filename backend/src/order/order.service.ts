@@ -34,4 +34,8 @@ export class OrderService {
   async list(): Promise<Order[]> {
     return await this.orderRepository.find();
   }
+
+  async deleteOrders() {
+    return await this.orderRepository.delete({});
+  }
 }

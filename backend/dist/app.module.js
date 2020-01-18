@@ -28,6 +28,8 @@ const typeorm_1 = require("@nestjs/typeorm");
 const order_module_1 = require("./order/order.module");
 const order_entity_1 = require("./order/order.entity");
 const delivery_notice_module_1 = require("./delivery-notice/delivery-notice.module");
+const match_weights_module_1 = require("./match-weights/match-weights.module");
+const truck_weight_entity_1 = require("./match-weights/truck-weight.entity");
 let AppModule = class AppModule {};
 AppModule = __decorate(
   [
@@ -35,20 +37,22 @@ AppModule = __decorate(
       imports: [
         typeorm_1.TypeOrmModule.forRoot({
           type: "mysql",
-          host: "35.246.255.229",
+          host: "127.0.0.1",
           port: 3306,
           username: "root",
           password: process.env["DB_TECHCHALLENGE_PASSWORD"],
           database: "techchallenge",
           entities: [
             order_entity_1.Order,
-            scale_measurement_entity_1.ScaleMeasurement
+            scale_measurement_entity_1.ScaleMeasurement,
+            truck_weight_entity_1.TruckWeight
           ],
           synchronize: true
         }),
         scale_module_1.ScaleModule,
         order_module_1.OrderModule,
-        delivery_notice_module_1.DeliveryNoticeModule
+        delivery_notice_module_1.DeliveryNoticeModule,
+        match_weights_module_1.MatchWeightsModule
       ],
       controllers: [app_controller_1.AppController],
       providers: [app_service_1.AppService]

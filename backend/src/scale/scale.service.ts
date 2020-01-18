@@ -9,6 +9,7 @@ import {
   getConnection
 } from "typeorm";
 import { Order } from "src/order/order.entity";
+import { TruckWeight } from "../match-weights/truck-weight.entity";
 
 @Injectable()
 export class ScaleService {
@@ -16,7 +17,9 @@ export class ScaleService {
     @InjectRepository(ScaleMeasurement)
     private readonly scaleMeasurementRepository: Repository<ScaleMeasurement>,
     @InjectRepository(Order)
-    private readonly orderRepository: Repository<Order>
+    private readonly orderRepository: Repository<Order>,
+    @InjectRepository(TruckWeight)
+    private readonly truckRepository: Repository<TruckWeight>
   ) {}
 
   async saveMeasurement(
@@ -63,7 +66,7 @@ export class ScaleService {
 
     if (status == "OFF") {
       // Order measurement finished --> calculate order weight
-      const timestampStatusOn = await this.scaleMeasurementRepository.findOne({
+      const timestampStatusOn = await this.scaleMeasurementRepository.find({
         timestamp: LessThan(savedScaleMeasurement.timestamp),
         eventType: "ON"
       });
@@ -71,7 +74,7 @@ export class ScaleService {
         // TODO: this should always be true
         const measurementsOfOrder = await this.scaleMeasurementRepository.find({
           timestamp: Between(
-            timestampStatusOn.timestamp,
+            timestampStatusOn[timestampStatusOn.length - 1].timestamp,
             savedScaleMeasurement.timestamp
           )
         });
@@ -87,11 +90,11 @@ export class ScaleService {
   }
 
   async measurementsToOrder(weights: number[]) {
-    let measuredWeights = [];
+    const measuredWeights = [];
     let currentMax = 0;
     for (let i = 0; i < weights.length; i++) {
-      if (weights[i] == 0) {
-        if (currentMax != 0) {
+      if (weights[i] < 0.1) {
+        if (currentMax !== 0) {
           measuredWeights.push(currentMax);
         }
         currentMax = 0;
@@ -108,6 +111,29 @@ export class ScaleService {
     const matchingOrders = await this.orderRepository.find({
       total_weight: Between(totalDeliveryWeight - 5, totalDeliveryWeight + 5)
     });
+    if (matchingOrders.length === 1) {
+      matchingOrders[0].status = "WEIGHTED";
+      await this.orderRepository.update(
+        matchingOrders[0].id,
+        matchingOrders[0]
+      );
+
+      /*const newTruckWeight = new TruckWeight(
+                null,
+                totalDeliveryWeight,
+                matchingOrders[0],
+                new Date(),
+            );
+            await this.truckRepository.save(newTruckWeight);*/
+    } else {
+      const newTruckWeight = new TruckWeight(
+        null,
+        totalDeliveryWeight,
+        null,
+        new Date()
+      );
+      await this.truckRepository.save(newTruckWeight);
+    }
     console.log(`Measured-Weights:\r\n`, measuredWeights);
     console.log(`Matching-Orders:\r\n`, matchingOrders);
   }

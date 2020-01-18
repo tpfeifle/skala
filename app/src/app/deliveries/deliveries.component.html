@@ -1,11 +1,42 @@
 <section class="content-margin">
+  <p
+    style="font-size: 1.2em;
+    font-weight: bold;
+    border-bottom: 1px solid #CCC;
+    padding-bottom: 10px;"
+  >
+    Deine Bestellungen:
+  </p>
+  <mat-chip-list aria-label="Fish selection">
+    <mat-chip
+      (click)="filterString = 'All'"
+      [class.selected-chip]="filterString == 'All'"
+      >Alle</mat-chip
+    >
+    <mat-chip
+      (click)="filterString = 'Open'"
+      [class.selected-chip]="filterString == 'Open'"
+      >Offen</mat-chip
+    >
+    <mat-chip
+      (click)="filterString = 'Weighted'"
+      [class.selected-chip]="filterString == 'Weighted'"
+      >Gewogen</mat-chip
+    >
+    <mat-chip
+      (click)="filterString = 'Complete'"
+      [class.selected-chip]="filterString == 'Complete'"
+      >Fertig</mat-chip
+    >
+  </mat-chip-list>
+  <br />
   <div
-    *ngFor="let order of orders$ | async"
+    *ngFor="let order of orders$ | async | LockFilter: filterString"
     [routerLink]="['/order-detail', order.id]"
     class="order-item"
   >
     <div
-      class="order-item-content mat-elevation-z1"
+      class="order-item-content mat-elevation-z4"
       [ngClass]="{
         'order-weighted': order.status == 'WEIGHTED',
         'order-pay': order.status == 'PAY',
@@ -14,21 +45,26 @@
     >
       <p class="auto-columns">
         <b>{{ order.title }} (#{{ order.id }})</b>
-        <span class="right">{{ order.timestamp | date: 'dd/LL/yy' }}</span>
+        <span class="right">{{ order.timestamp | date: 'dd.LLL, hh:mm' }}</span>
       </p>
       <p class="label-columns">
-        <label><mat-icon>euro</mat-icon></label> <span>{{ order.cost }}</span>
-        <label><mat-icon>shopping_cart</mat-icon></label>
+        <label style="font-size:1.2em; font-weight: bold">€</label>
+        <span>{{ order.cost }}</span>
+        <label style="font-size:1.2em; font-weight: bold">kg</label>
         <span>{{ order.total_weight }}</span>
       </p>
     </div>
     <mat-icon *ngIf="order.status == 'OPEN'">query_builder</mat-icon>
-    <mat-icon *ngIf="order.status == 'WEIGHTED'" style="color:orange"
+    <!--<mat-icon *ngIf="order.status == 'WEIGHTED'" style="color:orange"
       >hourglass_full</mat-icon
-    >
-    <mat-icon *ngIf="order.status == 'PAY'" style="color:green"
+    >-->
+    <mat-icon *ngIf="order.status == 'PAY'" style="color:#3AAFA9"
       >check_circle</mat-icon
     >
-    <mat-icon *ngIf="order.status == 'ERROR'" style="color:red">error</mat-icon>
+    <mat-icon
+      *ngIf="order.status == 'ERROR' || order.status == 'WEIGHTED'"
+      style="color:#17252A"
+      >error</mat-icon
+    >
   </div>
 </section>

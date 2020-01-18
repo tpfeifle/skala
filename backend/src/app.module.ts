@@ -7,6 +7,8 @@ import { TypeOrmModule } from "@nestjs/typeorm";
 import { OrderModule } from "./order/order.module";
 import { Order } from "./order/order.entity";
 import { DeliveryNoticeModule } from "./delivery-notice/delivery-notice.module";
+import { MatchWeightsModule } from "./match-weights/match-weights.module";
+import { TruckWeight } from "./match-weights/truck-weight.entity";
 export interface ProcessEnv {
   [key: string]: string | undefined;
 }
@@ -15,17 +17,18 @@ export interface ProcessEnv {
   imports: [
     TypeOrmModule.forRoot({
       type: "mysql",
-      host: "35.246.255.229",
+      host: "127.0.0.1", //"35.246.255.229",
       port: 3306,
       username: "root",
       password: process.env["DB_TECHCHALLENGE_PASSWORD"],
       database: "techchallenge",
-      entities: [Order, ScaleMeasurement],
+      entities: [Order, ScaleMeasurement, TruckWeight],
       synchronize: true
     }),
     ScaleModule,
     OrderModule,
-    DeliveryNoticeModule
+    DeliveryNoticeModule,
+    MatchWeightsModule
   ],
   controllers: [AppController],
   providers: [AppService]

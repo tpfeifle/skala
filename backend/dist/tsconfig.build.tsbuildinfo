@@ -2134,39 +2134,43 @@
         "signature": "8f1241f5d9f0d3d72117768b3c974e462840fbd85026fb66685078945404cf2f"
       },
       "../src/scale/scale-measurement.entity.ts": {
-        "version": "25295b3265ed36a2d42532bdee1d3dfa2945c7491cc42b107b4cfeb3779389e2",
+        "version": "51be8cca855ab34b79f5f1363a8421b6ccbb8788ce5ee0aa35a07f3a4e0942f1",
         "signature": "7182eeb031914cdfb1c3120a2f7a490244159cb84eb7db3c5eac24b579d3849b"
       },
       "../src/order/order.entity.ts": {
-        "version": "46a48e7d46bad066b6803c0f421cbf68b153c3982c8ed27a690f15894462c0a7",
+        "version": "b8dd64d4a8e6b763a372ca8b244ba93456e5c15c77d0d295466ca501bf79aa41",
         "signature": "424ad524def2a0f82a989c024fd674629971306775292a83a7b5e27532da2b68"
       },
+      "../src/match-weights/truck-weight.entity.ts": {
+        "version": "194ecb4b4ad1a91b0ed48531289258f95bf7bbdd5fe165af21ebb623c57ebdfb",
+        "signature": "747399b5220471227c57cc5e0ba7d9944437397e02b29eee94480cdbf5e937ed"
+      },
       "../src/scale/scale.service.ts": {
-        "version": "967dbf95b0a438f29705d9c0b1b0946a9ea3968fb1e4cd0d3157e6438a197d4b",
-        "signature": "4fef0ba51bea144f44238543ffdd5f7293cda944f3d4f4b3b57a77137c000f42"
+        "version": "2f9f88f72f2572ce0ef129578fdfbef64b7482843db0344ea880af246de61253",
+        "signature": "0bf6db89074ffda8c9ba9853de1464b39012b3c1337ab7c40906ad1355d9391c"
       },
       "../src/scale/scale.controller.ts": {
-        "version": "85da2521c93f592b50f89440d3e7c08bb3a1625ac97bbefc2c7b34974b07c7c8",
-        "signature": "511759889385ebbe5a534c7e378b94b0319995309855885ae69ccbe8808bc38c"
+        "version": "12537a0d7dbc6fde0c3c74385246a5ec91b4eed02fcd3d2cd164adee2d35b773",
+        "signature": "355d149321d208bd558fd1d85380984b12f13d9df295ef25ca367d66548d788c"
       },
       "../src/scale/scale.module.ts": {
-        "version": "e2bd101e8530846793a0566f835720fcfe2b0fa5e6c23281681f78b35693a933",
+        "version": "b775c879522088408569a347796034820bf5d0284e3a1847a7dbf5ff0af5d47f",
         "signature": "05abecd7875a4a486de119dde046bb3e8280bb5cf75c53e9db9d5ac79e35e736"
       },
       "../src/order/order.service.ts": {
-        "version": "a8fa1afccd213f957ab3c656ab51d10362747cec169b04c4ab3644e5a083d7c7",
-        "signature": "ffe569d63b08eb71d4a3be6263eaa2db9644a9fffb04e30f7a52a5c17ac484e5"
+        "version": "ce48ed4f822ec97ea04ca50047893f04ab4f4eac363f0d1ef855cac85e4574fb",
+        "signature": "27fc6f59af4148c82f5643e974aabb581eeca62a3a329cdb931b9f4e12002424"
       },
       "../src/order/order.controller.ts": {
-        "version": "03c5c93292b29dcd812b31e0578b074d6a489602a18ffd1a1f63ad0cfaa9df10",
-        "signature": "4974407e1e800799ddf40c37fa3a44abfef60ccc754b355203a3002fe080ff71"
+        "version": "fcc49425c54816dcf707a41a08ffda27654992b033ad0cabd3943e6dc1cdda10",
+        "signature": "a6bea6771f848b218cf635d81d8bf65dbcef5ad2011550d024aa678cc62c7a5f"
       },
       "../src/order/order.module.ts": {
-        "version": "40ed02f2e9955fdbae45591966cfffd43b0ee2fa0a7096c5344de1005ff179eb",
+        "version": "cfd460de74322090871090e32cbc68362939353d028fd24a7d92421b06dd1f3e",
         "signature": "9b2b198dbfcb909c95538f26f07ecfed022ca48dd8f81d8acacb0ba38aecc202"
       },
       "../src/delivery-notice/delivery-notice.service.ts": {
-        "version": "ddc9efc393487758db27e016734fd90d3aa836bd755ed589746d1af79d3e1015",
+        "version": "76c407c997afafffc6ca61119db7fcc729d4904eb566f1d0a562c90bcb435d10",
         "signature": "9dfc97e9bdb5aa3f295f7d236ad4a6fc1d1a75aedfdca567966884a4ba96fc27"
       },
       "../node_modules/@nestjs/core/adapters/http-adapter.d.ts": {
@@ -2238,15 +2242,27 @@
         "signature": "e3cd60be3c4f95c43420be67eaa21637585b7c1a8129f9b39983bbd294f9513c"
       },
       "../src/delivery-notice/delivery-notice.controller.ts": {
-        "version": "96064883017d2839b8c4099e0ba2a88968e570987a1389078285201c3cee9844",
-        "signature": "f0dc3b5b556e1573b16ae4dd238ac9af377d1f3df56f2dbe90c6a1bf71adcf51"
+        "version": "3f57f57f4edb1f7c2d0f22aca75746ebe553e5b5eeb78196301f74b66daf5b87",
+        "signature": "55b5b86c6ce56420425cf76f8f254ddf2c4a4c9986f16ffb0ded0d1ba5d89522"
       },
       "../src/delivery-notice/delivery-notice.module.ts": {
-        "version": "dd796777b6b58ed62e03947977a896e9af2dd7eabc193eaef62cd84af9868675",
+        "version": "fa8f964c82869a0c90afe0d00965461b08d8bcacca7430dfe4a4edb9fb7af5f8",
         "signature": "6f0adaf201212ad8f36281d7d033538fc9886baad3ba9515217c119583bf041c"
       },
+      "../src/match-weights/match-weights.service.ts": {
+        "version": "ca6f87761176171bbc4b2bb90373e1912a9d7179f48acdef7416431aabbf9cfe",
+        "signature": "0ecacacd9f30839de8fc3574e4bfaf69c23e8c497072b183fd8fe56a9bf166b9"
+      },
+      "../src/match-weights/match-weights.controller.ts": {
+        "version": "24d8aa0c203507543722571ad5044b99cd2183d6e6ea6d2b401d3c32f7494bb3",
+        "signature": "3ddb199c7214282f7396d692f01d20b410a9581e8554dae09704faac9605005c"
+      },
+      "../src/match-weights/match-weights.module.ts": {
+        "version": "5b2039664fe1f5c532ec498cd05271050139915d01cf16ec7067c0bc947e4879",
+        "signature": "2904fd25a07bda0c802a21b4ab3df86661d3b988233c689a76c17a8c84bf36e4"
+      },
       "../src/app.module.ts": {
-        "version": "33ab687c61255d2f32a5392fe27e90d34279450cb59b3cfedd1b75c4b3926bfd",
+        "version": "e8eb4ca772902e1bdf5305442abbe2fb897e93ba66116693bb0178723dd08284",
         "signature": "769365c6a26891c4498c3c4f5b937faeb1122ed8de8b919ea49511ead48d8485"
       },
       "../node_modules/@nestjs/core/adapters/index.d.ts": {
@@ -2386,7 +2402,7 @@
         "signature": "6400917b161d3331bc82638ccc4aa149d755f501cfaba3d716fca1228c956171"
       },
       "../src/main.ts": {
-        "version": "97664ac04a0b15fa1d1e241900459df717550d3939a2dd797b29ffb66f550dca",
+        "version": "18a9ccb81f8cd94e15bb236ca1aa42b2b94af41ce385d036a32a6030c290d917",
         "signature": "8e609bb71c20b858c77f0e9f90bb1319db8477b13f9f965f1a1e18524bf50881"
       },
       "../node_modules/@types/anymatch/index.d.ts": {
@@ -7011,12 +7027,21 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/match-weights/truck-weight.entity.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/order/order.entity.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/scale/scale.service.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../src/scale/scale-measurement.entity.ts",
         "../node_modules/typeorm/index.d.ts",
         "../src/order/order.entity.ts",
+        "../src/match-weights/truck-weight.entity.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -7037,6 +7062,7 @@
         "../node_modules/@nestjs/typeorm/index.d.ts",
         "../src/scale/scale-measurement.entity.ts",
         "../src/order/order.entity.ts",
+        "../src/match-weights/truck-weight.entity.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -7237,6 +7263,39 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/match-weights/match-weights.service.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/order/order.entity.ts",
+        "../src/match-weights/truck-weight.entity.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../node_modules/typeorm/index.d.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/match-weights/match-weights.controller.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/match-weights/match-weights.service.ts",
+        "../src/order/order.entity.ts",
+        "../src/match-weights/truck-weight.entity.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "../src/match-weights/match-weights.module.ts": [
+        "../node_modules/@nestjs/common/index.d.ts",
+        "../src/match-weights/match-weights.service.ts",
+        "../src/match-weights/match-weights.controller.ts",
+        "../node_modules/@nestjs/typeorm/index.d.ts",
+        "../src/match-weights/truck-weight.entity.ts",
+        "../src/order/order.entity.ts",
+        "../node_modules/@types/node/fs.d.ts",
+        "../node_modules/@types/node/ts3.2/fs.d.ts",
+        "../node_modules/@types/node/util.d.ts",
+        "../node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "../src/app.module.ts": [
         "../node_modules/@nestjs/common/index.d.ts",
         "../src/app.controller.ts",
@@ -7247,6 +7306,8 @@
         "../src/order/order.module.ts",
         "../src/order/order.entity.ts",
         "../src/delivery-notice/delivery-notice.module.ts",
+        "../src/match-weights/match-weights.module.ts",
+        "../src/match-weights/truck-weight.entity.ts",
         "../node_modules/@types/node/fs.d.ts",
         "../node_modules/@types/node/ts3.2/fs.d.ts",
         "../node_modules/@types/node/util.d.ts",
@@ -12261,14 +12322,18 @@
         "../node_modules/@types/node/util.d.ts",
         "../node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "../src/match-weights/truck-weight.entity.ts": [
+        "../src/order/order.entity.ts"
+      ],
       "../src/scale/scale.service.ts": [
         "../node_modules/typeorm/index.d.ts",
         "../src/scale/scale-measurement.entity.ts",
-        "../src/order/order.entity.ts"
+        "../src/order/order.entity.ts",
+        "../src/match-weights/truck-weight.entity.ts"
       ],
       "../src/scale/scale.controller.ts": [
-        "../src/scale/scale-measurement.entity.ts",
-        "../src/scale/scale.service.ts"
+        "../src/scale/scale.service.ts",
+        "../src/scale/scale-measurement.entity.ts"
       ],
       "../src/order/order.service.ts": [
         "../node_modules/typeorm/index.d.ts",
@@ -12420,6 +12485,15 @@
       ],
       "../src/delivery-notice/delivery-notice.controller.ts": [
         "../src/delivery-notice/delivery-notice.service.ts"
+      ],
+      "../src/match-weights/match-weights.service.ts": [
+        "../node_modules/typeorm/index.d.ts",
+        "../src/match-weights/truck-weight.entity.ts",
+        "../src/order/order.entity.ts"
+      ],
+      "../src/match-weights/match-weights.controller.ts": [
+        "../src/match-weights/match-weights.service.ts",
+        "../src/match-weights/truck-weight.entity.ts"
       ],
       "../node_modules/@nestjs/core/adapters/index.d.ts": [
         "../node_modules/@nestjs/core/adapters/http-adapter.d.ts",
@@ -13520,7 +13594,7 @@
       "../node_modules/@nestjs/typeorm/index.d.ts",
       "../src/scale/scale-measurement.entity.ts",
       "../src/order/order.entity.ts",
-      "../src/scale/scale.service.ts",
+      "../src/match-weights/truck-weight.entity.ts",
       "../src/scale/scale.controller.ts",
       "../src/scale/scale.module.ts",
       "../src/order/order.service.ts",
@@ -13546,6 +13620,10 @@
       "../node_modules/@nestjs/platform-express/index.d.ts",
       "../src/delivery-notice/delivery-notice.controller.ts",
       "../src/delivery-notice/delivery-notice.module.ts",
+      "../src/match-weights/match-weights.service.ts",
+      "../src/match-weights/match-weights.controller.ts",
+      "../src/match-weights/match-weights.module.ts",
+      "../src/app.module.ts",
       "../node_modules/@nestjs/core/adapters/index.d.ts",
       "../node_modules/@nestjs/core/injector/module-token-factory.d.ts",
       "../node_modules/@nestjs/core/injector/modules-container.d.ts",
@@ -13580,6 +13658,7 @@
       "../node_modules/@nestjs/core/services/reflector.service.d.ts",
       "../node_modules/@nestjs/core/services/index.d.ts",
       "../node_modules/@nestjs/core/index.d.ts",
+      "../src/main.ts",
       "../node_modules/@types/anymatch/index.d.ts",
       "../node_modules/@babel/types/lib/index.d.ts",
       "../node_modules/@types/babel__generator/index.d.ts",
@@ -13616,8 +13695,7 @@
       "../node_modules/@types/webpack/index.d.ts",
       "../node_modules/@types/yargs-parser/index.d.ts",
       "../node_modules/@types/yargs/index.d.ts",
-      "../src/app.module.ts",
-      "../src/main.ts"
+      "../src/scale/scale.service.ts"
     ]
   },
   "version": "3.7.4"

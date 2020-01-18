@@ -1,4 +1,5 @@
 import { Order } from './order.model';
+import { TruckWeight } from './truck-weight.model';
 
 export class OrderListStateModel {
   constructor(orders: Order[]) {
@@ -7,4 +8,5 @@ export class OrderListStateModel {
 
   orders: Order[];
   detailChartId: number;
+  truckWeights: TruckWeight[];
 }

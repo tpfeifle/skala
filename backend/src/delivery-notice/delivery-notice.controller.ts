@@ -3,18 +3,18 @@ import {
   Get,
   Post,
   UploadedFile,
-  UseInterceptors
+  UseInterceptors,
+  Body,
+  Param,
+  Res
 } from "@nestjs/common";
 import { DeliveryNoticeService } from "./delivery-notice.service";
 import { FileInterceptor, MulterModule } from "@nestjs/platform-express";
 import { diskStorage } from "multer";
-
-MulterModule.register({
-  dest: "/Users/tim/WebstormProjects/smartcrane/backend/uploads"
-});
+import * as fs from "fs";
 
 export const editFileName = (req, file, callback) => {
-  callback(null, "newname");
+  callback(null, "newname.jpeg");
   /*const name = file.originalname.split('.')[0];
     const fileExtName = extname(file.originalname);
     const randomName = Array(4)
@@ -33,27 +33,24 @@ export class DeliveryNoticeController {
         return await this.chartService.create(sheetId, chart);
     }*/
 
-  @Get()
-  get() {
-    return "hello";
+  @Get("/:orderId")
+  get(@Param() params: any, @Res() res) {
+    return res.sendFile(
+      `/Users/tim/WebstormProjects/smartcrane/backend/uploads/${params["orderId"]}.jpeg`
+    );
   }
 
   @Post()
-  @UseInterceptors(
-    FileInterceptor("file", {
-      storage: diskStorage({
-        destination: "/Users/tim/WebstormProjects/smartcrane/backend/uploads"
-        // filename: editFileName,
-      })
-    })
-  )
-  async uploadedFile(@UploadedFile() file) {
-    const response = {
-      originalname: file.originalname,
-      filename: file.filename
-    };
-    console.log(response);
-    return response;
+  @UseInterceptors(FileInterceptor("file"))
+  async uploadedFile(@UploadedFile() file, @Body() data: any) {
+    console.log(file);
+    const directory = "./uploads";
+    const writeStream = fs.createWriteStream(
+      `${directory}/${data["orderId"]}.jpeg`
+    );
+    writeStream.write(file.buffer);
+    writeStream.end();
+    return 0;
   }
 
   /*@Post()

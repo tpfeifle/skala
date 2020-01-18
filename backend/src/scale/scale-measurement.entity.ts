@@ -25,7 +25,7 @@ export class ScaleMeasurement {
   @Column()
   eventType: string;
 
-  @Column()
+  @Column({ type: "double" })
   weight: number;
 
   @Column()
