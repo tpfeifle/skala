@@ -10,7 +10,7 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 //WIFI STUFF
 const char* ssid     = "iphonet";
 const char* password = "alehiphop";
-String host = "http://172.20.10.13";
+String host = "http://localhost";
 String port = "3000";
 int tryToConnectToWifiForThisLongMilliseconds = 30000;
 

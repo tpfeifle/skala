@@ -43,7 +43,7 @@ export class OrderState {
 
   @Action(ListOrders)
   listOrders(ctx: StateContext<OrderListStateModel>) {
-    return this.http.get<Order[]>(`http://172.20.10.13:3000/order`).pipe(
+    return this.http.get<Order[]>(`http://localhost:3000/order`).pipe(
       tap((orders: Order[]) => {
         const state = ctx.getState();
         ctx.setState({
@@ -57,7 +57,7 @@ export class OrderState {
   @Action(ListTruckWeights)
   listTruckWeights(ctx: StateContext<OrderListStateModel>) {
     return this.http
-      .get<TruckWeight[]>(`http://172.20.10.13:3000/match-weights`)
+      .get<TruckWeight[]>(`http://localhost:3000/match-weights`)
       .pipe(
         tap((truckWeights: TruckWeight[]) => {
           const state = ctx.getState();
@@ -78,7 +78,7 @@ export class OrderState {
   completeOrder(ctx: StateContext<OrderListStateModel>, { orderId }) {
     return this.http
       .put<Order>(
-        `http://172.20.10.13:3000/order`,
+        `http://localhost:3000/order`,
         this.getWithCompleted(
           ctx.getState().orders.filter(order => order.id === orderId)[0]
         )
@@ -111,7 +111,7 @@ export class OrderState {
     { truckWeightId }: DeleteTruckWeight
   ) {
     return this.http
-      .delete(`http://172.20.10.13:3000/match-weights/${truckWeightId}`)
+      .delete(`http://localhost:3000/match-weights/${truckWeightId}`)
       .pipe(
         tap(() => {
           const state = ctx.getState();
@@ -147,7 +147,7 @@ export class OrderState {
     { truckWeight }: UpdateTruckWeight
   ) {
     return this.http.put<TruckWeight>(
-      `http://172.20.10.13:3000/match-weights`,
+      `http://localhost:3000/match-weights`,
       this.getWithFullOrder(truckWeight, ctx)
     );
     /*.pipe(
