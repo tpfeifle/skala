@@ -23,7 +23,7 @@
     class="chip"
     *ngIf="['WEIGHTED', 'PAY', 'ERROR'].indexOf(order$ | async).status != -1"
   >
-    <mat-icon>error</mat-icon>
+    <mat-icon>done</mat-icon>
     <span>Lieferung gewogen</span>
   </p>
   <p class="chip" *ngIf="'PAY' == (order$ | async).status">
@@ -69,14 +69,16 @@
     </button>
   </form>
   <br />
-  <button
-    type="button"
-    (click)="completeOrder()"
-    class="blue"
-    *ngIf="'PAY' != (order$ | async).status"
-    mat-raised-button
-    color="primary"
-  >
-    Lieferung akzeptieren
-  </button>
+  <mat-action-row>
+    <button
+      type="button"
+      (click)="completeOrder()"
+      class="blue"
+      *ngIf="'PAY' != (order$ | async).status"
+      mat-raised-button
+      color="primary"
+    >
+      Lieferung akzeptieren
+    </button>
+  </mat-action-row>
 </section>

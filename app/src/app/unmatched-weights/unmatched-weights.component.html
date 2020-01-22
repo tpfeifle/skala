@@ -4,11 +4,9 @@
 <mat-accordion>
   <mat-expansion-panel *ngFor="let truckWeight of truckWeights$ | async">
     <mat-expansion-panel-header>
-      <mat-panel-title>
-        <span style="font-size:1.2em; font-weight: bold; margin-right:5px;"
-          >kg</span
-        >
+      <mat-panel-title style="font-size:1.2em;">
         {{ truckWeight.total_weight }}
+        <span style="font-weight: bold; margin-left:5px;">kg</span>
       </mat-panel-title>
       <mat-panel-description>
         {{ truckWeight.timestamp | date: 'medium' }}
@@ -24,22 +22,20 @@
         >
       </mat-select>
     </mat-form-field>
+    <br />
+    <mat-label>Lieferant anrufen: </mat-label>
+    <a href="tel:015223068828">
+      <button type="button" class="blue" mat-raised-button color="primary">
+        <mat-icon>phone</mat-icon>
+      </button>
+    </a>
 
     <mat-action-row>
-      <button
-        mat-raised-button
-        color="warn"
-        (click)="deleteTruckWeight(truckWeight)"
-      >
+      <button mat-raised-button (click)="deleteTruckWeight(truckWeight)">
         Gewicht löschen
       </button>
-      <button
-        mat-raised-button
-        color="primary"
-        class="blue"
-        (click)="assignOrder(truckWeight)"
-      >
-        Lieferung zuordnen
+      <button mat-raised-button color="warn" (click)="assignOrder(truckWeight)">
+        Bestellung unvollständig
       </button>
     </mat-action-row>
   </mat-expansion-panel>

@@ -134,9 +134,9 @@ export class OrderState {
     truckWeight: TruckWeight,
     ctx: StateContext<OrderListStateModel>
   ) {
-    // @ts-ignore
     truckWeight.order = ctx
       .getState()
+      // @ts-ignore
       .orders.filter(order => order.id === parseInt(truckWeight.order, 10))[0];
     return truckWeight;
   }

@@ -1,6 +1,8 @@
 import { Controller, Post, Param, Get, Body, Delete } from "@nestjs/common";
 import { ScaleService } from "./scale.service";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags("Measurement")
 @Controller("scale")
 export class ScaleController {
   constructor(private readonly scaleService: ScaleService) {}

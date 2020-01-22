@@ -61,7 +61,7 @@ export class OrderDetailComponent implements OnInit {
     console.log(this.selectedFile);
 
     this.http
-      .post(`http://localhost:3000/delivery-notice`, payload, {})
+      .post(`http://172.20.10.13:3000/delivery-notice`, payload, {})
       .subscribe((data: any) => {
         this.resData = data;
         this.reload = Math.random();

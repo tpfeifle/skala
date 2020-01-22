@@ -12,6 +12,7 @@ import { DeliveryNoticeService } from "./delivery-notice.service";
 import { FileInterceptor, MulterModule } from "@nestjs/platform-express";
 import { diskStorage } from "multer";
 import * as fs from "fs";
+import { ApiTags } from "@nestjs/swagger";
 
 export const editFileName = (req, file, callback) => {
   callback(null, "newname.jpeg");
@@ -24,6 +25,7 @@ export const editFileName = (req, file, callback) => {
     callback(null, `${name}-${randomName}${fileExtName}`);*/
 };
 
+@ApiTags("Delivery Note")
 @Controller("delivery-notice")
 export class DeliveryNoticeController {
   constructor(private readonly deliveryNoticeService: DeliveryNoticeService) {}

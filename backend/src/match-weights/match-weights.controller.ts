@@ -2,7 +2,9 @@ import { Body, Controller, Delete, Get, Param, Put } from "@nestjs/common";
 import { MatchWeightsService } from "./match-weights.service";
 import { Order } from "../order/order.entity";
 import { TruckWeight } from "./truck-weight.entity";
+import { ApiTags } from "@nestjs/swagger";
 
+@ApiTags("Measurement")
 @Controller("match-weights")
 export class MatchWeightsController {
   constructor(private readonly matchWeightsService: MatchWeightsService) {}
